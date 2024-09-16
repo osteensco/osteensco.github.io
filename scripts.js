@@ -36,7 +36,13 @@ const AboutMe = () => {
                 About Me
             </h2>
             <p class="text-xl text-zinc-500">
-                **********Some stuff about me.**********
+        I am a software developer with a background in data and analytics. 
+        I have experience in various domains such as Web/App usage, CSAT, Transportation, and Supply Chain. 
+        I have a passion for building and learning new things.
+        I am fascinated by how much value can be created using data and strong system design. 
+        I enjoy the process of exploring new ideas and concepts around software, AI/ML, and system architecture. 
+        I find building creative solutions for difficult problems extremly fulfilling. 
+        My favorite projects to work on are the ones that allow me to flex my creativity as well as grow my professional skillset.
             </p>
         </section>
         <section class="my-5">
@@ -50,6 +56,11 @@ const AboutMe = () => {
     );
 };
 
+const Projects = () => {
+    return(
+        <div></div>
+    );
+};
 
 const App = () => {
   return (
