@@ -16,10 +16,12 @@ const TechSection = () => {
                   className="flex flex-col gap-1 dark:bg-neutral-950 border dark:border-neutral-900 rounded-lg aspect-square justify-center items-center"
                 >
                   <img
+                    loading="lazy"
                     src={t.img}
                     alt={t.name}
                     width="50"
                     height="50"
+                    decoding="async"
                   />
                 </div>
               ))}
@@ -64,7 +66,7 @@ const Projects = () => {
 
 const App = () => {
   return (
-    <div>
+    <div class="max-w-full mx-auto px-4 md:max-w-4xl lg:max-w-5xl" >
         <AboutMe />
     </div>
   );
@@ -72,7 +74,15 @@ const App = () => {
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
+const Footer = () => {
+    let today = new Date()
+    let currentYear = today.getFullYear()
+    return (
+        <p>&copy; {currentYear}  Scott Osteen</p>
+    )
+}
 
+ReactDOM.render(<Footer />, document.getElementById('foot'));
 
 
 
