@@ -89,7 +89,7 @@ const projectList = [
         url: "https://echovault.io/",
     },
     {
-        imagePath: "./projects/ft.png",
+        imagePath: "./projects/ft.PNG",
         name: "fastTravelCLI",
         text: "A cli tool written in Go that provides a superior CD experience.",
         url: "https://github.com/osteensco/fastTravelCLI",
