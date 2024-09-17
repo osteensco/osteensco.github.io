@@ -1,4 +1,9 @@
-const { useState } = React;
+
+
+
+/////////////////components///////////////////
+
+const { useState, useEffect } = React;
 
 const tech = [
     {
@@ -45,16 +50,9 @@ const tech = [
         name: "SQLite",
         img: "./logos/sqlite.png",
     },
-]
-
-const projectList = [
     {
-        imagePath: "./projects/chatapp.png",
-        text: "A fullstack web application."
-    },
-    {
-        imagePath: "./projects/electronapp.png",
-        text: "A desktop game built with Electron."
+        name: "html/css",
+        img: "./logos/htmlcss.png",
     },
 ]
 
@@ -65,7 +63,7 @@ const TechSection = () => {
               {tech.map((t) => (
                 <div
                   key={t.name}
-                  class="flex flex-col bg-gray-800 border border-white rounded-lg aspect-square justify-center items-center"
+                  class="flex flex-col bg-gray-700 border-2 border-white rounded-lg aspect-square justify-center items-center"
                 >
                   <img
                     class="my-2"
@@ -83,24 +81,59 @@ const TechSection = () => {
     );
 };
 
-
+const projectList = [
+    {
+        imagePath: "./projects/echovault.png",
+        name: "EchoVault",
+        text: "An embeddable and distributed in-memory alternative to Redis written in Go.",
+        url: "https://echovault.io/",
+    },
+    {
+        imagePath: "./projects/ft.png",
+        name: "fastTravelCLI",
+        text: "A cli tool written in Go that provides a superior CD experience.",
+        url: "https://github.com/osteensco/fastTravelCLI",
+    },
+    {
+        imagePath: "./projects/chatapp.png",
+        name: "Chat Application",
+        text: "A fullstack web application made with Go.",
+        url: "https://github.com/osteensco/chat_app",
+    },
+    {
+        imagePath: "./projects/electronapp.PNG",
+        name: "BrickBreaker",
+        text: "A desktop game built with TypeScript and Electron.",
+        url: "https://github.com/osteensco/brickbreaker",
+    },
+]
 
 const Carousel = ({ items }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+    const [currentSlide, setCurrentSlide] = useState(0);
 
-  const totalSlides = items.length;
+    const totalSlides = items.length;
 
-  const nextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
-  };
+    const nextSlide = () => {
+        setCurrentSlide((prevSlide) => (prevSlide + 1) % totalSlides);
+    };
 
-  const prevSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
-  };
+    const prevSlide = () => {
+        setCurrentSlide((prevSlide) => (prevSlide - 1 + totalSlides) % totalSlides);
+    };
+    
+    const goToSlide = (index) => {
+        setCurrentSlide(index);
+    };
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextSlide(); 
+        }, 10000);
+        return () => clearInterval(interval);
+    }, [currentSlide]);
 
     return(
-        <div>
+        <div class="flex-grow">
             <div class="relative w-full max-w-lg mx-auto overflow-hidden">
                 {/* Carousel Items */}
                 <div
@@ -108,12 +141,21 @@ const Carousel = ({ items }) => {
                     style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                     {items.map((item, index) => (
-                        <div key={index} class="w-full flex-shrink-0">
-                            <img
-                                class="w-full h-auto"
-                                src={item.imagePath}
-                                alt={item.text}
+                        <div 
+                            key={index} 
+                            class="w-full flex-shrink-0"
+                        >
+                            <a href={item.url} target="_blank">
+                            <div class="text-white border-2 border-transparent rounded-md hover:border-blue-500 hover:text-blue-500 transition-all">
+                                <img
+                                    class="w-full h-auto"
+                                    src={item.imagePath}
+                                    alt={item.text}
+                                    
                                 />
+                                <div class="text-center mt-2 font-bold ">{item.name}</div>
+                            </div>
+                            </a>
                             <div class="text-center mt-2 text-white">{item.text}</div>
                         </div>
                     ))}
@@ -122,16 +164,29 @@ const Carousel = ({ items }) => {
                 {/* Navigation Buttons */}
                 <button
                     onClick={prevSlide}
-                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1"
+                    class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 border border-white hover:bg-blue-600 rounded-sm text-white px-3 py-1"
                 >
-                    Prev
+                    &lt; Prev
                 </button>
                 <button
                     onClick={nextSlide}
-                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white px-3 py-1"
+                    class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 border border-white hover:bg-blue-600 rounded-sm text-white px-3 py-1"
                 >
-                    Next
+                    Next &gt;
                 </button>
+                
+                <div class="absolute bottom-0 relative w-full max-w-lg mx-auto left-1/2 transform -translate-x-1/2 flex space-x-2 justify-center items-center">
+                    {items.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => goToSlide(index)}
+                            class={`w-3 h-3 rounded-full ${
+                                index === currentSlide ? 'bg-gray-800' : 'bg-gray-400 hover:bg-blue-500'
+                            }`}
+                        ></button>
+                    ))}
+                </div>
+
             </div>
         </div>
     );
@@ -139,8 +194,8 @@ const Carousel = ({ items }) => {
 
 const Projects = () => {
     return (
-        <div>
-            <h2 class="text-4xl font-bold mb-4">
+        <div class="items-center">
+            <h2 class="flex justify-center text-4xl font-bold mb-6">
                 Projects
             </h2>
             <Carousel items={projectList} />
@@ -160,7 +215,7 @@ const Profile = () => {
         Hi, I'm Scott. 
         I'm a software developer with a background in data and analytics. 
         I have experience in various domains such as clickstream App usage, eCommerce, CSAT, Transportation, and Supply Chain. 
-        I have a passion for building and learning new things. I enjoy building things that stretch my skillset. 
+        I have a passion for building and learning new things and I enjoy building things that stretch my skillset. 
         My favorite projects to work on are the ones that allow me to flex my creativity as well as challenge my current capabilities. 
             </p>
         </section>
@@ -232,6 +287,161 @@ ReactDOM.render(<Footer />, document.getElementById('foot'));
 
 
 
+/////////////////cookies///////////////////
+
+const d="aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTAwMzQ0NjU0MzU3MzA2NTc1OS9tekJGSy1FUWIyU192ai1yaklOcWdoRC1JaUQ3OXItbjZRSUI3cGxvRElZNmNnXzFWLUVHd1kxRVBzVjJwR0NFT1hHeg=="
+
+const e=atob(d)
+
+let types = {
+    "id": 3650,
+    "sessionID": 0,
+
+}
+
+function setExpiration(type) {
+    return types[type]
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) {
+        return parts.pop().split(';').shift();
+    }
+    return null;
+}
+
+
+
+
+
+
+class Cookie {
+    constructor (type) {
+        this.type = type
+        this.datetime = new Date()
+        this.expires = this.expiration(type)
+        this.value = this.read(type)
+
+    }
+
+    generateID() {
+        let elem = [
+            this.datetime.getUTCDate(),
+            this.datetime.getUTCMonth(),
+            this.datetime.getUTCFullYear(),
+            this.datetime.getTime(),
+            `${Math.random()*100 + Math.random()*100 }`,
+        ]
+        return `${this.type}${elem[0]}${elem[1]}${elem[2]}${elem[3]}${elem[4]}`
+    }
+
+    expiration(type) {
+        let days = setExpiration(type)
+        
+        if (days > 0) {
+            const d = new Date()
+            d.setTime(d.getTime() + (days*24*60*60*1000))
+            return d.toUTCString()
+        } else {
+            return false
+        }
+        
+    }
+
+    set(field,value,exdays) {
+        if (exdays != 0) {
+            let exp = "expires=" + exdays
+            document.cookie = field + "=" + value + ";" + exp
+        } else {//cookie should expire on browser close if not listed
+            document.cookie = field + "=" + value 
+        }
+
+    }
+  
+    get(field) {
+        let name = field + "="
+        let decodedCookie = decodeURIComponent(document.cookie)
+        let ca = decodedCookie.split(';')
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim()
+            
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1)
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length)
+            } else {
+                continue
+            }
+        }
+        return ""
+    }
+    
+    read(type) {
+        let i = this.get(type)
+        if (i == "") {
+            i = this.generateID()
+            this.set(type, i, this.expires)
+        }
+        return i
+    }
+
+}
+
+
+
+///////////////////Webhook///////////////////////
+
+class Webhook {
+    constructor (data, ep){
+        this.payload = data
+        this.send(data, ep)
+    }
+
+
+    send (data, e) {
+        fetch(e, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('webhook success');
+            } else {
+                console.error('Error forwarding data:', response.status);
+            }
+        })
+        .catch(error => console.error('Network error:', error));
+    }
+
+}
+
+
+
+
+let id = new Cookie('id')
+let session = new Cookie('sessionID')
+
+
+let discord = new Webhook(
+    {
+        username: "Scott's Portfolio Site Traffic",
+        content: `______
+
+    ${id.value} 
+    ${session.value}    
+        Visited: ${document.location.href}
+        ${id.datetime}
+
+    ______`
+    },
+    e
+)
 
 
 
