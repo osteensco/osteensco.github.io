@@ -84,7 +84,7 @@ const TechSection = () => {
 const projectList = [
     {
         imagePath: "./projects/echovault.png",
-        name: "EchoVault",
+        name: "SugarDB",
         text: "An embeddable and distributed in-memory alternative to Redis written in Go.",
         url: "https://echovault.io/",
     },
