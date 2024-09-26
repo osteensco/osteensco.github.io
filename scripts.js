@@ -181,7 +181,7 @@ const Carousel = ({ items }) => {
                             key={index}
                             onClick={() => goToSlide(index)}
                             class={`w-3 h-3 rounded-full ${
-                                index === currentSlide ? 'bg-gray-800' : 'bg-gray-400 hover:bg-blue-500'
+                                index === currentSlide ? 'bg-gray-400' : 'bg-gray-800 hover:bg-blue-500'
                             }`}
                         ></button>
                     ))}
