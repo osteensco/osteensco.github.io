@@ -23,9 +23,13 @@ const tech = [
         img: "./logos/JS.png",
     },
     {
-        name: "SQL",
-        img: "./logos/SQL.png",
+        name: "Bash",
+        img: "https://skillicons.dev/icons?i=bash",
     },
+    // {
+    //     name: "SQL",
+    //     img: "./logos/SQL.png",
+    // },
     {
         name: "Lua",
         img: "./logos/lua.png",
@@ -51,9 +55,13 @@ const tech = [
         img: "./logos/sqlite.png",
     },
     {
-        name: "html/css",
-        img: "./logos/htmlcss.png",
+        name: "Docker",
+        img: "https://skillicons.dev/icons?i=docker",
     },
+    // {
+    //     name: "html/css",
+    //     img: "./logos/htmlcss.png",
+    // },
 ]
 
 const TechSection = () => {
