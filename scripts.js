@@ -431,24 +431,24 @@ class Webhook {
 
 
 
-let id = new Cookie('id')
-let session = new Cookie('sessionID')
-
-
-let discord = new Webhook(
-    {
-        username: "Scott's Portfolio Site Traffic",
-        content: `______
-
-    ${id.value} 
-    ${session.value}    
-        Visited: ${document.location.href}
-        ${id.datetime}
-
-    ______`
-    },
-    e
-)
+// let id = new Cookie('id')
+// let session = new Cookie('sessionID')
+//
+//
+// let discord = new Webhook(
+//     {
+//         username: "Scott's Portfolio Site Traffic",
+//         content: `______
+//
+//     ${id.value} 
+//     ${session.value}    
+//         Visited: ${document.location.href}
+//         ${id.datetime}
+//
+//     ______`
+//     },
+//     e
+// )
 
 
 
