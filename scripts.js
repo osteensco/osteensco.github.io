@@ -109,10 +109,10 @@ const projectList = [
         url: "https://github.com/osteensco/chat_app",
     },
     {
-        imagePath: "./projects/electronapp.PNG",
-        name: "BrickBreaker",
-        text: "A desktop game built with TypeScript and Electron.",
-        url: "https://github.com/osteensco/brickbreaker",
+        imagePath: "./projects/pytivate.png",
+        name: "Pytivate",
+        text: "A quality of life improvement for python's venv.",
+        url: "https://github.com/osteensco/pytivate",
     },
 ]
 
