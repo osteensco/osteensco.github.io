@@ -18,21 +18,21 @@ const tech = [
         name: "TypeScript",
         img: "./logos/typescript.png",
     },
+    // {
+    //     name: "JavaScript",
+    //     img: "./logos/JS.png",
+    // },
     {
-        name: "JavaScript",
-        img: "./logos/JS.png",
+        name: "SQL",
+        img: "./logos/SQL.png",
+    },
+    {
+        name: "Lua",
+        img: "./logos/lua.png",
     },
     {
         name: "Bash",
         img: "https://skillicons.dev/icons?i=bash",
-    },
-    // {
-    //     name: "SQL",
-    //     img: "./logos/SQL.png",
-    // },
-    {
-        name: "Lua",
-        img: "./logos/lua.png",
     },
     {
         name: "AWS",
