@@ -91,22 +91,22 @@ const TechSection = () => {
 
 const projectList = [
     {
+        imagePath: "./projects/switchboard.png",
+        name: "Switchboard",
+        text: "A cloud agnostic serverless orchestration framework.",
+        url: "https://github.com/osteensco/switchboard",
+    },
+    {
         imagePath: "./projects/echovault.png",
         name: "SugarDB",
-        text: "An embeddable and distributed in-memory alternative to Redis written in Go.",
+        text: "An embeddable and distributed in-memory database.",
         url: "https://echovault.io/",
     },
     {
         imagePath: "./projects/ft.PNG",
         name: "fastTravelCLI",
-        text: "A cli tool written in Go that provides a superior CD experience.",
+        text: "A cli tool provides a superior CD experience.",
         url: "https://github.com/osteensco/fastTravelCLI",
-    },
-    {
-        imagePath: "./projects/chatapp.png",
-        name: "Chat Application",
-        text: "A fullstack web application made with Go.",
-        url: "https://github.com/osteensco/chat_app",
     },
     {
         imagePath: "./projects/pytivate.png",
