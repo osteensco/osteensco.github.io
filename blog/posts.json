@@ -1,0 +1,18 @@
+{
+    "posts": [
+        {
+            "slug": "teaching-a-binary-to-cd",
+            "title": "Teaching a binary to cd",
+            "date": "2026-04-09",
+            "excerpt": "A child process can't change its parent's directory. Here's how fastTravelCLI gets around that, and what else broke along the way.",
+            "file": "teaching-a-binary-to-cd.md"
+        },
+        {
+            "slug": "fasttravelcli-the-deterministic-cd",
+            "title": "fastTravelCLI: a deterministic cd",
+            "date": "2026-03-21",
+            "excerpt": "Why I built another directory jumper, and what it does that z and zoxide don't.",
+            "file": "fasttravelcli-the-deterministic-cd.md"
+        }
+    ]
+}

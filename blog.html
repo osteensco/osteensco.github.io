@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:type" content="website" />
+    <title>Blog - Scott Osteen</title>
+    <!-- Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .blog-content h1 { font-size: 2.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 1rem; }
+        .blog-content h2 { font-size: 1.875rem; font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.75rem; }
+        .blog-content h3 { font-size: 1.5rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; }
+        .blog-content p { margin-bottom: 1rem; line-height: 1.625; }
+        .blog-content code { background: #374151; padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9em; }
+        .blog-content pre { background: #374151; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; }
+        .blog-content pre code { background: transparent; padding: 0; }
+        .blog-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+        .blog-content ol { list-style-type: decimal; margin-left: 1.5rem; margin-bottom: 1rem; }
+        .blog-content li { margin-bottom: 0.25rem; }
+        .blog-content a { color: #3b82f6; text-decoration: underline; }
+        .blog-content blockquote { border-left: 4px solid #4b5563; padding-left: 1rem; font-style: italic; color: #d1d5db; margin-bottom: 1rem; }
+        .blog-content hr { border-color: #4b5563; margin: 2rem 0; }
+    </style>
+</head>
+<!-- React -->
+<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+<!-- Babel for transpiling JSX -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- Marked for markdown rendering -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<body class="bg-gray-900 min-h-screen text-white">
+    <header>
+        <div id="head"></div>
+    </header>
+
+    <main>
+        <div id="root"></div>
+    </main>
+
+    <footer class="p-4">
+        <div id="foot"></div>
+    </footer>
+
+    <script type="text/babel" src="common.js"></script>
+    <script type="text/babel" src="blog.js"></script>
+</body>
+
+</html>
