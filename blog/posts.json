@@ -1,6 +1,13 @@
 {
     "posts": [
         {
+            "slug": "switchboard-orchestration-as-code",
+            "title": "Switchboard: orchestration-as-code",
+            "date": "2026-04-29",
+            "excerpt": "Step Functions and Cloud Workflows want you to learn their DSL. Switchboard lets you write workflows as code, on any cloud.",
+            "file": "switchboard-orchestration-as-code.md"
+        },
+        {
             "slug": "teaching-a-binary-to-cd",
             "title": "Teaching a binary to cd",
             "date": "2026-04-09",
